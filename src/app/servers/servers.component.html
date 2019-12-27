@@ -5,5 +5,8 @@
 <button class="btn-primary" [disabled]="!allowNewServer"
 (click)="onCreateServer()">Add server</button>
 <!--<p>{{serverCreatinStatus}}</p>-->
-<p *ngIf="serverCreated">{{serverCreatinStatus}}</p>
+<p *ngIf="serverCreated; else noServer">{{serverCreatinStatus}}</p>
+<ng-template #noServer>
+  <p>No server was created!</p>
+</ng-template>
 <app-server></app-server>
